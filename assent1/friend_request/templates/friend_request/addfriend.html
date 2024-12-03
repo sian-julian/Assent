@@ -1,0 +1,36 @@
+{% extends 'temp/usercss.html' %}
+{% block base %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<center>
+	<h2>view Add friend</h2>
+	<table border="1">
+		<tr>
+			<th>request id</th>
+			<th>sender id</th>
+{#			<th>receiver id</th>#}
+			<th>Date</th>
+			<th>Time</th>
+			<th>Status</th>
+		</tr>
+        {% for i in x %}
+		<tr>
+			<td>{{ i.request_id }}</td>
+			<td>{{ i.user.username }}</td>
+{#			<td>{{ i.receiver_id }}</td>#}
+			<td>{{ i.date }}</td>
+			<td>{{ i.time }}</td>
+			<td>{{ i.request }}</td>
+            <td><a href="/friend_request/accept/{{ i.request_id }}">Accept</a></td>
+            <td><a href="/friend_request/reject/{{ i.request_id }}">Reject</a></td>
+		</tr>
+        {% endfor %}
+	</table>
+</center>
+</body>
+</html>
+{% endblock %}

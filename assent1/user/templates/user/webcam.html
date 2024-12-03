@@ -1,0 +1,91 @@
+<!-- webcam.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+{#    <title>Webcam Interface</title>#}
+</head>
+<body>
+{#    <h1>Webcam Interface</h1>#}
+    <video id="video" width="320" height="220" autoplay></video>
+    <center>
+    <button id="captureButton">Capture Image</button>
+    <input type="text" id="status" name="status" readonly required>
+    <input type="hidden" id="saveok" name="saveok" readonly required>
+
+        </center>
+    <canvas id="canvas" width="640" height="480" style="display: none;"></canvas>
+
+    <script>
+        const video = document.getElementById('video');
+        const canvas = document.getElementById('canvas');
+        const captureButton = document.getElementById('captureButton');
+        let stream;
+
+        // Access webcam and display stream
+        async function init() {
+            try {
+                stream = await navigator.mediaDevices.getUserMedia({ video: true });
+                video.srcObject = stream;
+            } catch (err) {
+                console.error('Error accessing webcam:', err);
+            }
+        }
+
+        // Capture image from webcam
+        // Capture image from webcam
+function captureImage() {
+    document.getElementById("status").value="Wait To Confirm Photo"
+    document.getElementById("saveok").value="";
+    const context = canvas.getContext('2d');
+    context.drawImage(video, 0, 0, canvas.width, canvas.height);
+    const imageData = canvas.toDataURL('image/png');
+
+    // Send imageData to server using AJAX
+    fetch('/user/capimage/', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded', // Set content type to x-www-form-urlencoded
+            'X-CSRFToken': '{{ csrf_token }}'  // Include CSRF token
+        },
+        body: 'image_data=' + encodeURIComponent(imageData) // Encode the image data
+    })
+    .then(response => {
+        if (response.ok) {
+            {#alert('Image saved successfully');#}
+            return response.json();
+        } else {
+            console.error('Failed to save image');
+        }
+
+        })
+        .then(data=>{
+            var res=JSON.stringify(data.message);
+            alert(res);
+            if (res=='"uploaded"')
+            {
+                document.getElementById("status").value="Successfully Uploaded";
+                document.getElementById("saveok").value="Submit";
+            }
+            else
+            {
+                document.getElementById("status").value="";
+                document.getElementById("saveok").value="";
+                {##}
+            }
+
+        })
+
+    .catch(error => {
+        alert('Network Error')
+    });
+    }
+
+        // Initialize webcam and start streaming
+        init();
+
+        // Add event listener for capture button
+        captureButton.addEventListener('click', captureImage);
+    </script>
+</body>
+</html>

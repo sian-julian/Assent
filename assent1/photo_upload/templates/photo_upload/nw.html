@@ -1,0 +1,337 @@
+{#<!DOCTYPE html>#}
+{#<html>#}
+{#<head>#}
+{#	<title></title>#}
+{#</head>#}
+{#<body>#}
+{#	<table border="2">#}
+{#			<tr>#}
+{#				<th>SI.NO</th>#}
+{#				<th>Image</th>#}
+{#				<th>Status</th>#}
+{#			</tr>#}
+{#        {% for i in o %}#}
+{#			<tr>#}
+{#            <td>{{ i.user_id }}</td>#}
+{#                <td><img src="/static/{{ i.choose_file }}" width="50" height="50"></td>#}
+{#                <td><a href="">change</a></td>#}
+{#				<td><a href="">accept</a></td>#}
+{#			</tr>#}
+{#        {% endfor %}#}
+{#	</table>#}
+{##}
+{#</body>#}
+{#</html>#}
+{##}
+{##}
+{##}
+{##}
+{##}
+{##}
+{##}
+{##}
+{##}
+{##}
+{##}
+{##}
+{##}
+{##}
+{#{% extends 'temp/user.html' %}#}
+{#{% block base %}#}
+{#  <form method="POST" enctype="multipart/form-data">#}
+{#                                                 {% csrf_token %}#}
+{#<div class="new-postbox">#}
+{#										<figure>#}
+{#											<img src="/static/images/resources/admin2.jpg" alt="">#}
+{#										</figure>#}
+{##}
+{#										<div class="newpst-input">#}
+{##}
+{#												<textarea rows="2" placeholder="write something" name="type"></textarea>#}
+{#												<div class="attachments">#}
+{#													<ul>#}
+{#														<li>#}
+{#															<i class="fa fa-music"></i>#}
+{#															<label class="fileContainer">#}
+{#																<input type="file">#}
+{#															</label>#}
+{#														</li>#}
+{#														<li>#}
+{#															<i class="fa fa-image"></i>#}
+{#															<label class="fileContainer">#}
+{#																<input type="file" name="hello">#}
+{#															</label>#}
+{#														</li>#}
+{#														<li>#}
+{#															<i class="fa fa-video-camera"></i>#}
+{#															<label class="fileContainer">#}
+{#																<input type="file">#}
+{#															</label>#}
+{#														</li>#}
+{#														<li>#}
+{#															<i class="fa fa-camera"></i>#}
+{#															<label class="fileContainer">#}
+{#																<input type="file">#}
+{#															</label>#}
+{#														</li>#}
+{#														<li>#}
+{#															<button type="submit">Post</button>#}
+{#														</li>#}
+{#													</ul>#}
+{#												</div>#}
+{#                                        </div>#}
+{#</div>#}
+{#											</form>#}
+{#										</div>#}
+{#{% for i in o %}#}
+{#   <div class="friend-info">#}
+{#											<figure>#}
+{#												<img src="/static/{{ i.user.profile }}" alt="">#}
+{#											</figure>#}
+{#											<div class="friend-name">#}
+{#												<ins><a href="time-line.html" title="">Janice Griffith</a></ins>#}
+{#												<span>published: june,2 2018 19:PM</span>#}
+{#											</div>#}
+{#											<div class="post-meta">#}
+{##}
+{#												<img src="/static/{{ i.choose_file }}" alt="" height="50" width="50">#}
+{#												<div class="we-video-info">#}
+{#													<ul>#}
+{#														<li>#}
+{#															<span class="views" data-toggle="tooltip" title="views">#}
+{#																<i class="fa fa-eye"></i>#}
+{#																<ins>1.2k</ins>#}
+{#															</span>#}
+{#														</li>#}
+{##}
+{#														<li>#}
+{#															<span class="comment" data-toggle="tooltip" title="Comments">#}
+{#																<a href="{% url 'co' idd=i.image_id %}"> <i class="fa fa-comments-o"></i></a>#}
+{#															</span>#}
+{#														</li>#}
+{#														<li>#}
+{#															<span class="like" data-toggle="tooltip" title="like">#}
+{#																<i class="ti-heart"></i>#}
+{#																<ins>2.2k</ins>#}
+{#															</span>#}
+{#														</li>#}
+{#														<li>#}
+{#															<span class="dislike" data-toggle="tooltip" title="dislike">#}
+{#																<i class="ti-heart-broken"></i>#}
+{#																<ins>200</ins>#}
+{#															</span>#}
+{#														</li>#}
+{#    <div class="description">#}
+{##}
+{#													<p>#}
+{#                                                        {{ i.type }}#}
+{#													</p>#}
+{#												</div>#}
+{#                                                        {% endfor %}#}
+{#														<li class="social-media">#}
+{#															<div class="menu">#}
+{#															  <div class="btn trigger"><i class="fa fa-share-alt"></i></div>#}
+{#															  <div class="rotater">#}
+{#																<div class="btn btn-icon"><a href="#" title=""><i class="fa fa-html5"></i></a></div>#}
+{#															  </div>#}
+{#															  <div class="rotater">#}
+{#																<div class="btn btn-icon"><a href="#" title=""><i class="fa fa-facebook"></i></a></div>#}
+{#															  </div>#}
+{#															  <div class="rotater">#}
+{#																<div class="btn btn-icon"><a href="#" title=""><i class="fa fa-google-plus"></i></a></div>#}
+{#															  </div>#}
+{#															  <div class="rotater">#}
+{#																<div class="btn btn-icon"><a href="#" title=""><i class="fa fa-twitter"></i></a></div>#}
+{#															  </div>#}
+{#															  <div class="rotater">#}
+{#																<div class="btn btn-icon"><a href="#" title=""><i class="fa fa-css3"></i></a></div>#}
+{#															  </div>#}
+{#															  <div class="rotater">#}
+{#																<div class="btn btn-icon"><a href="#" title=""><i class="fa fa-instagram"></i></a>#}
+{#																</div>#}
+{#															  </div>#}
+{#																<div class="rotater">#}
+{#																<div class="btn btn-icon"><a href="#" title=""><i class="fa fa-dribbble"></i></a>#}
+{#																</div>#}
+{#															  </div>#}
+{#															  <div class="rotater">#}
+{#																<div class="btn btn-icon"><a href="#" title=""><i class="fa fa-pinterest"></i></a>#}
+{#																</div>#}
+{#															  </div>#}
+{##}
+{##}
+{##}
+{#{% endblock %}#}
+
+{% extends 'temp/usercss.html' %}
+{% block base %}
+
+
+    <div class="col-lg-6">
+								<div class="central-meta">
+									<div class="new-postbox">
+
+										<figure>
+											<img src="/static/{{ p.name }}" alt="">
+										</figure>
+
+										<div class="newpst-input">
+											<form method="post" enctype="multipart/form-data">
+                                                {% csrf_token %}
+												<textarea rows="2" placeholder="write something" name="type"></textarea>
+												<div class="attachments">
+													<ul>
+{#														<li>#}
+{#															<i class="fa fa-music"></i>#}
+{#															<label class="fileContainer">#}
+{#																<input type="file">#}
+{#															</label>#}
+{#														</li>#}
+														<li>
+															<i class="fa fa-image"></i>
+															<label class="fileContainer">
+																<input type="file" name="hello">
+															</label>
+														</li>
+{#														<li>#}
+{#															<i class="fa fa-video-camera"></i>#}
+{#															<label class="fileContainer">#}
+{#																<input type="file">#}
+{#															</label>#}
+{#														</li>#}
+{#														<li>#}
+{#															<i class="fa fa-camera"></i>#}
+{#															<label class="fileContainer">#}
+{#																<input type="file">#}
+{#															</label>#}
+{#														</li>#}
+														<li>
+															<button type="submit">Post</button>
+														</li>
+													</ul>
+												</div>
+											</form>
+										</div>
+									</div>
+								</div><!-- add post new box -->
+								<div class="loadMore">
+								<div class="central-meta item">
+									<div class="user-post">
+
+                                    </div>
+                                </div>
+                                </div>
+    </div>
+
+
+
+
+
+
+
+{#    ######## VIEW ############}
+    {% for i in o %}
+    <div class="friend-info">
+											<figure>
+												<img src="/static/{{ i.user.image }}" alt="">
+											</figure>
+											<div class="friend-name">
+												<ins><a href="time-line.html" title="">{{ i.user.name }}</a></ins>
+												<span>published: {{ i.date }}-{{ i.time }}</span>
+											</div>
+											<div class="post-meta">
+                                                {% if i.status == 'hide' %}
+												        <img src="/static/{{ i.blur }}" alt="">
+                                                {% else %}
+                                                        <img src="/static/{{ i.photo }}" alt="">
+                                                {% endif %}
+												<div class="we-video-info">
+                                                    {% for j in k %}
+                                                        {% if i.photo_id == j.photo_id %}
+                                                            <p><img src="/static/{{ j.user.image }}" style="height: 20px;width: 20px">User:{{ j.user.name }}     :{{ j.comment }}</p>
+                                                         {% else %}
+                                                            <p></p>
+                                                        {% endif %}
+                                                        {% endfor %}
+													<ul>
+{#														<li>#}
+{#															<span class="views" data-toggle="tooltip" title="views">#}
+{#																<i class="fa fa-eye"></i>#}
+{#																<ins>1.2k</ins>#}
+{#															</span>#}
+{#														</li>#}
+														<li>
+															<span class="comment" data-toggle="tooltip" title="Comments">
+{#                                                            {% for j in k %}#}
+{#																<a> <i class="fa fa-comments-o">{{ j.comment }}</i></a>#}
+																<a href="/comment/comment/{{ i.photo_id }}"> <i class="fa fa-comments-o"></i></a>
+{#                                                                {% endfor %}#}
+															</span>
+														</li>
+														<li>
+{#                                                            <a href="{% url 'like' idd=i.image_id %}"> <span class="like" data-toggle="tooltip" title="like">#}
+																<a href="/photo_upload/l/{{ i.photo_id }}"><i class="ti-heart"></i></a>
+																<ins>{{ i.like }}</ins>
+                                                            </span>
+
+														</li>
+
+{#														<li>#}
+{#															<span class="dislike" data-toggle="tooltip" title="dislike">#}
+{#																<i class="ti-heart-broken"></i>#}
+{#																<ins>200</ins>#}
+{#															</span>#}
+{#														</li>#}
+{#														<li class="social-media">#}
+{#															<div class="menu">#}
+{#															  <div class="btn trigger"><i class="fa fa-share-alt"></i></div>#}
+{#															  <div class="rotater">#}
+{#																<div class="btn btn-icon"><a href="#" title=""><i class="fa fa-html5"></i></a></div>#}
+{#															  </div>#}
+{#															  <div class="rotater">#}
+{#																<div class="btn btn-icon"><a href="#" title=""><i class="fa fa-facebook"></i></a></div>#}
+{#															  </div>#}
+{#															  <div class="rotater">#}
+{#																<div class="btn btn-icon"><a href="#" title=""><i class="fa fa-google-plus"></i></a></div>#}
+{#															  </div>#}
+{#															  <div class="rotater">#}
+{#																<div class="btn btn-icon"><a href="#" title=""><i class="fa fa-twitter"></i></a></div>#}
+{#															  </div>#}
+{#															  <div class="rotater">#}
+{#																<div class="btn btn-icon"><a href="#" title=""><i class="fa fa-css3"></i></a></div>#}
+{#															  </div>#}
+{#															  <div class="rotater">#}
+{#																<div class="btn btn-icon"><a href="#" title=""><i class="fa fa-instagram"></i></a>#}
+{#																</div>#}
+{#															  </div>#}
+{#																<div class="rotater">#}
+{#																<div class="btn btn-icon"><a href="#" title=""><i class="fa fa-dribbble"></i></a>#}
+{#																</div>#}
+{#															  </div>#}
+{#															  <div class="rotater">#}
+{#																<div class="btn btn-icon"><a href="#" title=""><i class="fa fa-pinterest"></i></a>#}
+{#																</div>#}
+{#															  </div>#}
+{##}
+{#															</div>#}
+{#														</li>#}
+													</ul>
+												</div>
+												<div class="description">
+
+													<p>
+														{{ i.type }}
+													</p>
+												</div>
+											</div>
+										</div>
+{#        </div>#}
+{#        </div>#}
+{#        </div>#}
+
+{% endfor %}
+
+
+{% endblock %}
+
+

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<center>
+    <h2>view comment</h2>
+    <table border="1" class="table table-bordered">
+        <tr>
+            <th>user</th>
+            <th>photo</th>
+            <th>comment</th>
+        </tr>
+        {% for i in x %}
+        <tr>
+            <td>{{ i.user.username}}</td>
+            <td>{{ i.photo.photo }}</td>
+            <td>{{ i.comment }}</td>
+            <td
+        </tr>
+        {% endfor %}
+    </table>
+
+</center>
+</body>
+</html>

@@ -1,0 +1,37 @@
+{% extends 'temp/usercss.html' %}
+{% block base2 %}
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+<head>
+	<title>CHAT</title>
+</head>
+<body>
+<center>
+<div class="table" style="background-color:#badbcc">
+                    <br>
+            <h4 class="text-white" style="font-size: x-large" >USER LIST</h4>
+{#<h4 class=" mb-4" style="color: #194376" >.......................................................................................................................</h4>#}
+{#<img src="/static/{{  }}" style="border-radius: 50%; height: 30px; width:30px;">&nbsp;#}
+
+
+                <table class="table" border="1" style="width:400%;">
+                        <tr style="background: #1b2f4c">
+                            <td>Messages</td>
+                        </tr>
+
+                    {% for i in kk %}
+
+                        <tr class="bg-light">
+                            <td><a href="/student_chat/chat/{{ i.user_id }}/#ss"><img src="/static/av.png" style="border-radius: 50%; height: 30px; width:30px;">&nbsp;&nbsp;{{ i.username }}</a></td>
+                        </tr>
+
+                    {% endfor %}
+
+                </table>
+                    <br>
+            </div>
+</center>
+</body>
+</html>
+{% endblock %}

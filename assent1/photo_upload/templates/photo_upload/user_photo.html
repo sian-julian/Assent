@@ -1,0 +1,109 @@
+{#<!DOCTYPE html>#}
+{#<html lang="en">#}
+{#<head>#}
+{#    <meta charset="UTF-8">#}
+{#    <title>Title</title>#}
+{#</head>#}
+{#<body>#}
+{##}
+{#</body>#}
+{#</html>#}
+{% extends 'temp/usercss.html' %}
+{% block base1 %}
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+     <div class="loadMore">
+        {% for i in o %}
+    <div class="friend-info">
+											<figure>
+												<img src="/static/{{ i.user.image }}" alt="">
+											</figure>
+											<div class="friend-name">
+												<ins><a href="time-line.html" title="">{{ i.user.name }}</a></ins>
+												<span>published: {{ i.date }}-{{ i.time }}</span>
+											</div>
+											<div class="post-meta">
+                                                {% if i.status == 'hide' %}
+												        <img src="/static/{{ i.blur }}" alt="">
+                                                {% else %}
+                                                        <img src="/static/{{ i.photo }}" alt="">
+                                                {% endif %}
+												<div class="we-video-info">
+													<ul>
+														<li>
+															<span class="views" data-toggle="tooltip" title="views">
+																<i class="fa fa-eye"></i>
+																<ins>1.2k</ins>
+															</span>
+														</li>
+														<li>
+															<span class="comment" data-toggle="tooltip" title="Comments">
+																<a href="/comment/comment/{{ i.photo_id }}"> <i class="fa fa-comments-o"></i></a>
+															</span>
+														</li>
+														<li>
+{#                                                            <a href="{% url 'like' idd=i.image_id %}"> <span class="like" data-toggle="tooltip" title="like">#}
+																<i class="ti-heart"></i>
+																<ins>{{ i.like }}K</ins>
+                                                            </span>
+
+														</li>
+
+{#														<li>#}
+{#															<span class="dislike" data-toggle="tooltip" title="dislike">#}
+{#																<i class="ti-heart-broken"></i>#}
+{#																<ins>200</ins>#}
+{#															</span>#}
+{#														</li>#}
+														<li class="social-media">
+															<div class="menu">
+															  <div class="btn trigger"><i class="fa fa-share-alt"></i></div>
+															  <div class="rotater">
+																<div class="btn btn-icon"><a href="#" title=""><i class="fa fa-html5"></i></a></div>
+															  </div>
+															  <div class="rotater">
+																<div class="btn btn-icon"><a href="#" title=""><i class="fa fa-facebook"></i></a></div>
+															  </div>
+															  <div class="rotater">
+																<div class="btn btn-icon"><a href="#" title=""><i class="fa fa-google-plus"></i></a></div>
+															  </div>
+															  <div class="rotater">
+																<div class="btn btn-icon"><a href="#" title=""><i class="fa fa-twitter"></i></a></div>
+															  </div>
+															  <div class="rotater">
+																<div class="btn btn-icon"><a href="#" title=""><i class="fa fa-css3"></i></a></div>
+															  </div>
+															  <div class="rotater">
+																<div class="btn btn-icon"><a href="#" title=""><i class="fa fa-instagram"></i></a>
+																</div>
+															  </div>
+																<div class="rotater">
+																<div class="btn btn-icon"><a href="#" title=""><i class="fa fa-dribbble"></i></a>
+																</div>
+															  </div>
+															  <div class="rotater">
+																<div class="btn btn-icon"><a href="#" title=""><i class="fa fa-pinterest"></i></a>
+																</div>
+															  </div>
+
+															</div>
+														</li>
+													</ul>
+												</div>
+												<div class="description">
+
+													<p>
+														{{ i.type }}
+													</p>
+												</div>
+											</div>
+										</div>
+
+{% endfor %}
+     </div>
+</body>
+</html>
+{% endblock %}

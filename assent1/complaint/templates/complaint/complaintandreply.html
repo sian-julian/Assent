@@ -1,0 +1,35 @@
+{% extends 'temp/admincss.html' %}
+{% block base %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<center>
+	<h2>view complaint and reply</h2>
+	<table border="1" class="table table-bordered">
+		<tr>
+			<th>Complaint id</th>
+			<th>User id</th>
+            <th>Complaint</th>
+			<th>Date</th>
+			<th>Time</th>
+			<th>Reply</th>
+		</tr>
+        {% for i in x %}
+		<tr>
+			<td>{{ i.complaint_id }}</td>
+			<td>{{ i.user.username}}</td>
+            <td>{{ i.complaint }}</td>
+			<td>{{ i.date }}</td>
+			<td>{{ i.time }}</td>
+			<td>{{ i.reply }}</td>
+			<td><a href="/complaint/reply/{{ i.complaint_id }}">reply</a></td>
+		</tr>
+        {% endfor %}
+	</table>
+</center>
+</body>
+</html>
+{% endblock %}
